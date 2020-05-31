@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@master
@@ -18,7 +18,7 @@ jobs:
     - name: Set up .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '3.1.201'
+        dotnet-version: '3.1.102'
 
     - name: Build with dotnet
       run: dotnet build --configuration Release
@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'linewebhookdemo405416024'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6f422b44f13746528174b427215cae4d }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_7efd7bf272cb4811ba2933b311c16e0c }}
         package: ${{env.DOTNET_ROOT}}/myapp 
